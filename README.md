@@ -3,6 +3,8 @@
 ゆっくりMovieMaker4 (YMM4) のタイムラインに、PDFファイルを図形アイテムとして追加できるようにするプラグインです。  
 特定のページを表示し、拡大率などをアニメーションさせることも可能です。
 
+![image](https://github.com/routersys/YMM4-PDF/blob/main/image_file.png)
+
 ## 機能
 
 -   **PDFページの表示**: 任意のPDFファイルの特定のページをタイムラインに表示します。
