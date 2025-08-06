@@ -7,9 +7,18 @@ using YukkuriMovieMaker.Exo;
 using YukkuriMovieMaker.Player.Video;
 using YukkuriMovieMaker.Plugin.Shape;
 using YukkuriMovieMaker.Project;
+using Ymm4Pdf.UI;
 
-namespace ymm4_pdf
+namespace Ymm4Pdf.Shape
 {
+    public enum RenderMode
+    {
+        [Description("ベクター (高品質)")]
+        Vector,
+        [Description("ラスター (高速)")]
+        Raster
+    }
+
     internal class PdfShapeParameter : ShapeParameterBase
     {
         [Display(Name = "ファイル")]
@@ -18,14 +27,21 @@ namespace ymm4_pdf
         private string filePath = "";
 
         [Display(Name = "ページ番号")]
-        [TextBoxSlider("F0", "ページ", 1, 9999)]
-        [DefaultValue(1)]
-        public int Page { get => page; set => Set(ref page, value); }
-        private int page = 1;
+        [AnimationSlider("F0", "ページ", 1, 100)]
+        public Animation Page { get; } = new(1, 1, 9999);
 
-        [Display(Name = "拡大率")]
-        [AnimationSlider("F1", "%", 0, 800)]
-        public Animation Scale { get; } = new(100, 0, 800);
+        [Display(Name = "描画モード")]
+        [EnumComboBox]
+        public RenderMode RenderMode { get => renderMode; set => Set(ref renderMode, value); }
+        private RenderMode renderMode = RenderMode.Vector;
+
+        [Display(Name = "サイズ", GroupName = "ベクター設定")]
+        [AnimationSlider("F2", "%", 1, 800)]
+        public Animation VectorSize { get; } = new(100, 0, 8000);
+
+        [Display(Name = "品質(DPI)", GroupName = "ラスター設定")]
+        [AnimationSlider("F0", "DPI", 72, 2400)]
+        public Animation RasterDpi { get; } = new(300, 72, 9600);
 
         public PdfShapeParameter() : this(null) { }
         public PdfShapeParameter(SharedDataStore? sharedData) : base(sharedData) { }
@@ -35,7 +51,10 @@ namespace ymm4_pdf
             return new PdfShapeSource(devices, this);
         }
 
-        protected override IEnumerable<IAnimatable> GetAnimatables() => new IAnimatable[] { Scale };
+        protected override IEnumerable<IAnimatable> GetAnimatables()
+        {
+            return new IAnimatable[] { this.Page, this.VectorSize, this.RasterDpi };
+        }
 
         public override IEnumerable<string> CreateMaskExoFilter(int keyFrameIndex, ExoOutputDescription desc, ShapeMaskExoOutputDescription shapeMaskDesc) => [];
         public override IEnumerable<string> CreateShapeItemExoFilter(int keyFrameIndex, ExoOutputDescription desc) => [];

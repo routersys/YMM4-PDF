@@ -3,7 +3,7 @@ using System.Windows.Data;
 using YukkuriMovieMaker.Commons;
 using YukkuriMovieMaker.Views.Converters;
 
-namespace ymm4_pdf
+namespace Ymm4Pdf.UI
 {
     internal class PdfFileSelectorAttribute : PropertyEditorAttribute2
     {

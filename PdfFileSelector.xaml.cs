@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using YukkuriMovieMaker.Commons;
 
-namespace ymm4_pdf
+namespace Ymm4Pdf.UI
 {
     public partial class PdfFileSelector : UserControl, IPropertyEditorControl
     {
