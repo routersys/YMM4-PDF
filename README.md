@@ -19,7 +19,7 @@ PDFファイルを図形アイテムとしてYukkuriMovieMaker4で使用でき�
 
 ## インストール
 
-1. [Releases](https://github.com/routersys/YMM4-PDF/releases)から最新版をダウンロード
+1. [Releases](https://github.com/routersys/YMM4-PDF/releases/latest)から最新版をダウンロード
 2. `.ymme`ファイルをクリック
 3. インストールをクリック
 
