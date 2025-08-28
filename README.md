@@ -1,7 +1,8 @@
 # YMM4-PDF
 
 YukkuriMovieMaker4用のPDF図形プラグイン
-
+>[!caution]
+>バージョン確認機能搭載していません。
 ![image](https://github.com/routersys/YMM4-PDF/blob/main/image_file.png)
 
 ## 概要
