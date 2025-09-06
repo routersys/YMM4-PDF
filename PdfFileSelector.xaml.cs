@@ -147,8 +147,8 @@ namespace Ymm4Pdf.UI
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "PDFファイル (*.pdf)|*.pdf",
-                Title = "PDFファイルを選択"
+                Filter = Translate.PdfFileFilter,
+                Title = Translate.SelectPdfFile
             };
 
             if (!string.IsNullOrEmpty(Value) && File.Exists(Value))

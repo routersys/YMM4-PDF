@@ -13,33 +13,33 @@ namespace Ymm4Pdf.Shape
 {
     public enum RenderMode
     {
-        [Description("ベクター (高品質)")]
+        [Display(Name = nameof(Translate.Vector), ResourceType = typeof(Translate))]
         Vector,
-        [Description("ラスター (高速)")]
+        [Display(Name = nameof(Translate.Raster), ResourceType = typeof(Translate))]
         Raster
     }
 
     internal class PdfShapeParameter : ShapeParameterBase
     {
-        [Display(Name = "ファイル")]
+        [Display(Name = nameof(Translate.File), ResourceType = typeof(Translate))]
         [PdfFileSelector]
         public string FilePath { get => filePath; set => Set(ref filePath, value); }
         private string filePath = "";
 
-        [Display(Name = "ページ番号")]
-        [AnimationSlider("F0", "ページ", 1, 100)]
+        [Display(Name = nameof(Translate.PageNumber), ResourceType = typeof(Translate))]
+        [AnimationSlider("F0", nameof(Translate.Page), 1, 100, ResourceType = typeof(Translate))]
         public Animation Page { get; } = new(1, 1, 9999);
 
-        [Display(Name = "描画モード")]
+        [Display(Name = nameof(Translate.RenderMode), ResourceType = typeof(Translate))]
         [EnumComboBox]
         public RenderMode RenderMode { get => renderMode; set => Set(ref renderMode, value); }
         private RenderMode renderMode = RenderMode.Vector;
 
-        [Display(Name = "サイズ", GroupName = "ベクター設定")]
+        [Display(Name = nameof(Translate.Size), GroupName = nameof(Translate.VectorSettings), ResourceType = typeof(Translate))]
         [AnimationSlider("F2", "%", 1, 800)]
         public Animation VectorSize { get; } = new(100, 0, 8000);
 
-        [Display(Name = "品質(DPI)", GroupName = "ラスター設定")]
+        [Display(Name = nameof(Translate.Quality), GroupName = nameof(Translate.RasterSettings), ResourceType = typeof(Translate))]
         [AnimationSlider("F0", "DPI", 72, 2400)]
         public Animation RasterDpi { get; } = new(300, 72, 9600);
 

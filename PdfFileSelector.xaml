@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Ymm4Pdf.Shape"
+             xmlns:pdf="clr-namespace:Ymm4Pdf"
              mc:Ignorable="d" 
              d:DesignHeight="30" d:DesignWidth="300" Name="this">
     <Grid>
@@ -44,6 +45,6 @@
             </ComboBox.ItemContainerStyle>
         </ComboBox>
 
-        <Button Grid.Column="1" Content="参照" Click="Button_Click"/>
+        <Button Grid.Column="1" Content="{Binding Source={x:Static pdf:Translate.Browse}}" Click="Button_Click"/>
     </Grid>
 </UserControl>

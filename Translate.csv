@@ -1,0 +1,15 @@
+﻿Key,Comment,ja-jp,en-us,zh-cn,zh-tw,ko-kr,es-es,ar-sa,id-id
+PluginName,プラグイン名,PDF図形,PDF Shape,PDF形状,PDF形狀,PDF 도형,Forma PDF,شكل PDF,Bentuk PDF
+File,ファイル,ファイル,File,文件,文件,파일,Archivo,ملف,Mengajukan
+Page,ページ,ページ,Page,页,頁,페이지,Página,صفحة,Halaman
+PageNumber,ページ番号,ページ番号,Page Number,页码,頁碼,페이지 번호,Número de página,رقم الصفحة,Nomor halaman
+RenderMode,描画モード,描画モード,Render Mode,渲染模式,渲染模式,렌더링 모드,Modo de renderizado,وضع العرض,Mode Render
+Vector,ベクター,ベクター (高品質),Vector (High Quality),矢量（高品质）,向量（高品質）,벡터(고품질),Vector (alta calidad),المتجه (جودة عالية),Vektor (Kualitas Tinggi)
+Raster,ラスター,ラスター (高速),Raster (High Speed),光栅（高速）,光柵（高速）,래스터(고속),Ráster (alta velocidad),النقطية (سرعة عالية),Raster (Kecepatan Tinggi)
+Size,サイズ,サイズ,Size,尺寸,尺寸,크기,Tamaño,مقاس,Ukuran
+VectorSettings,ベクター設定,ベクター設定,Vector Settings,矢量设置,向量設定,벡터 설정,Configuración de vectores,إعدادات المتجهات,Pengaturan Vektor
+Quality,品質,品質(DPI),Quality (DPI),质量（DPI）,品質（DPI）,품질(DPI),Calidad (DPI),الجودة (DPI),Kualitas (DPI)
+RasterSettings,ラスター設定,ラスター設定,Raster Settings,光栅设置,光柵設定,래스터 설정,Configuración de ráster,إعدادات النقطية,Pengaturan Raster
+Browse,参照,参照,Browse,浏览,瀏覽,참조,Buscar,تصفح,Telusuri
+PdfFileFilter,PDFファイルフィルター,PDFファイル (*.pdf)|*.pdf,PDF Files (*.pdf)|*.pdf,PDF文件 (*.pdf)|*.pdf,PDF檔案 (*.pdf)|*.pdf,PDF 파일 (*.pdf)|*.pdf,Archivos PDF (*.pdf)|*.pdf,ملفات PDF (*.pdf)|*.pdf,File PDF (*.pdf)|*.pdf
+SelectPdfFile,PDFファイル選択,PDFファイルを選択,Select PDF file,选择PDF文件,選擇PDF檔案,PDF 파일 선택,Seleccionar archivo PDF,حدد ملف PDF,Pilih file PDF

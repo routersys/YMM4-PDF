@@ -8,7 +8,7 @@ namespace Ymm4Pdf
     public class PdfShapePlugin : IShapePlugin
     {
 
-        public string Name => "PDF図形";
+        public string Name => Translate.PluginName;
 
         public bool IsExoShapeSupported => false;
 
