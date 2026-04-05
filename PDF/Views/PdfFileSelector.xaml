@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="PDF.Views.PdfFileSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:PDF.ViewModels"
+             xmlns:models="clr-namespace:PDF.Models"
+             xmlns:loc="clr-namespace:PDF.Localization"
+             mc:Ignorable="d"
+             d:DesignHeight="30" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Type={x:Type vm:PdfFileSelectorViewModel}}">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type models:PdfFileItem}">
+            <Grid Height="22">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="18" Height="18" Margin="0,0,4,0" BorderBrush="Gray" BorderThickness="1" VerticalAlignment="Center">
+                    <Image Source="{Binding Thumbnail}" Stretch="Uniform" />
+                </Border>
+                <TextBlock Grid.Column="1" Text="{Binding FileName}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DropDownTemplate" DataType="{x:Type models:PdfFileItem}">
+            <Grid Height="50" Background="Transparent">
+                <Grid.ToolTip>
+                    <ToolTip Placement="Right" HorizontalOffset="4" VerticalOffset="-4">
+                        <Border BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2">
+                            <Image Source="{Binding Thumbnail}" Stretch="Uniform" MaxWidth="256" MaxHeight="256" />
+                        </Border>
+                    </ToolTip>
+                </Grid.ToolTip>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="40" Height="40" Margin="4" BorderBrush="Gray" BorderThickness="1" VerticalAlignment="Center">
+                    <Image Source="{Binding Thumbnail}" Stretch="Uniform" />
+                </Border>
+                <TextBlock Grid.Column="1" Text="{Binding FileName}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="0"
+                  ItemsSource="{Binding PdfFiles}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  VerticalContentAlignment="Center"
+                  DropDownOpened="OnDropDownOpened">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="ContentTemplate" Value="{StaticResource DropDownTemplate}" />
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <Button Grid.Column="1"
+                Content="{Binding Source={x:Static loc:Texts.Browse}}"
+                Click="OnBrowseClick" />
+    </Grid>
+</UserControl>
